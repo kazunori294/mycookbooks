@@ -1,6 +1,0 @@
-default centos6
-
-label centos6
-kernel vmlinuz
-append ks=http://10.1.0.2/ks.cfg load initrd=initrd.img devfs=nomount console=ttyS0,9600
-
