@@ -18,3 +18,6 @@ execute "install ruby_on_rails" do
 	gem install rails --no-ri --no-rdoc
   EOF
 end
+
+
+#fail... need to fix
