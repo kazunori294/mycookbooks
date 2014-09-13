@@ -9,6 +9,7 @@
 
 execute "install ruby_on_rails" do
   command <<-EOF
+  	yum install -y sqlite-devel
 	curl -L get.rvm.io | bash -s stable
 	source /etc/profile.d/rvm.sh
 	rvm requirements
