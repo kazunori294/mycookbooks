@@ -76,3 +76,19 @@ mysql> show databases;
 | performance_schema   |
 | test                 |
 +----------------------+
+
+rails server --port=80
+
+rails g model host hostname:string ipaddress:string
+#cat db/migrate/20140914151945_create_hosts.rb 
+rake db:migrate
+
+mysql> use infraweb_development;
+mysql> show tables;
++--------------------------------+
+| Tables_in_infraweb_development |
++--------------------------------+
+| hosts                          |
+| schema_migrations              |
++--------------------------------+
+
