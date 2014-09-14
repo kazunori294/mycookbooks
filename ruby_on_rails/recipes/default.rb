@@ -21,6 +21,7 @@ execute "install ruby_on_rails" do
 end
 
 #yum install -y mysql-server
+#yum install -y mysql-devel
 
 # add vi /etc/my.cnf
 #character-set-server = utf8
@@ -32,5 +33,22 @@ end
 
 
 #mysql> grant all privileges on *.* to infraweb@localhost identified by 'infraweb';
+#mysql> select user,host from mysql.user;
+#+----------+------------------+
+#| user     | host             |
+#+----------+------------------+
+#| root     | 127.0.0.1        |
+#| root     | ::1              |
+#|          | ip-172-31-14-121 |
+#| root     | ip-172-31-14-121 |
+#|          | localhost        |
+#| infraweb | localhost        |
+#| root     | localhost        |
+#+----------+------------------+
 
 #fail... need to fix
+
+
+#rails new infraweb -d mysql
+#add gem 'therubyracer'  to  Gemfile
+#bundle install
