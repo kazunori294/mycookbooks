@@ -63,3 +63,16 @@ end
 #  username: infraweb
 #  password: infraweb
 #  socket: /var/lib/mysql/mysql.sock
+
+rake db:create
+mysql> show databases;
++----------------------+
+| Database             |
++----------------------+
+| information_schema   |
+| infraweb_development |
+| infraweb_test        |
+| mysql                |
+| performance_schema   |
+| test                 |
++----------------------+
