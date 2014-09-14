@@ -31,4 +31,6 @@ end
 # mysqladmin -u root password 'password'
 
 
+#mysql> grant all privileges on *.* to infraweb@localhost identified by 'infraweb';
+
 #fail... need to fix
