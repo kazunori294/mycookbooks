@@ -20,5 +20,7 @@ execute "install ruby_on_rails" do
   EOF
 end
 
+#yum install -y mysql-server
+
 
 #fail... need to fix
