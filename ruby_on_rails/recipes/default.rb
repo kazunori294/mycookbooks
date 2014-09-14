@@ -22,5 +22,13 @@ end
 
 #yum install -y mysql-server
 
+# add vi /etc/my.cnf
+#character-set-server = utf8
+#default-storage-engine=InnoDB
+
+# service mysqld start
+# chkconfig mysqld on
+# mysqladmin -u root password 'password'
+
 
 #fail... need to fix
