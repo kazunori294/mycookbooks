@@ -92,3 +92,17 @@ mysql> show tables;
 | schema_migrations              |
 +--------------------------------+
 
+
+vi db/seeds.rb
+@host = Host.new
+@host.hostname = 'testhost1'
+@host.ipaddress = '192.168.1.1'
+@host.save
+
+@host = Host.new
+@host.hostname = 'testhost2'
+@host.ipaddress = '192.168.1.2'
+@host.save
+
+rake db:seed
+
