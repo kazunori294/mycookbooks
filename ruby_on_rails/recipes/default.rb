@@ -52,3 +52,14 @@ end
 #rails new infraweb -d mysql
 #add gem 'therubyracer'  to  Gemfile
 #bundle install
+
+#rails g controller hosts index
+
+#vi config/database.yml
+#default: &default
+#  adapter: mysql2
+#  encoding: utf8
+#  pool: 5
+#  username: infraweb
+#  password: infraweb
+#  socket: /var/lib/mysql/mysql.sock
