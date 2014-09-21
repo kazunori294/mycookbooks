@@ -135,7 +135,30 @@ git clone https://github.com/kazunori294/rails.git
 cd /rails/english
 bundle install
 
+#1-1 use localdb
+yum install -y mysql-server mysql-devel
+
+vi /etc/my.cnf
+character-set-server = utf8
+default-storage-engine=InnoDB
+
+service mysqld start
+chkconfig mysqld on
+mysqladmin -u root password 'password'
+
+
+mysql> grant all privileges on *.* to infraweb@localhost identified by 'infraweb';
+mysql> grant all privileges on *.* to english@localhost identified by 'english';
+mysql> select user,host from mysql.user;
 mysql> create database english_development;
+
+cd /rails/english
 rake db:migrate RAILS_ENV=development
+
+
+#1-2 use remote db
+yum install -y mysql mysql-devel
+### if needed
+vi config/database.yml
 
 
