@@ -33,6 +33,7 @@ mysqladmin -u root password 'password'
 
 
 mysql> grant all privileges on *.* to infraweb@localhost identified by 'infraweb';
+mysql> grant all privileges on *.* to english@localhost identified by 'english';
 mysql> select user,host from mysql.user;
 #+----------+------------------+
 #| user     | host             |
@@ -116,3 +117,25 @@ mysql> select * from hosts;
 |  1 | testhost1 | 192.168.1.1 | 2014-09-14 15:26:30 | 2014-09-14 15:26:30 |
 |  2 | testhost2 | 192.168.1.2 | 2014-09-14 15:26:30 | 2014-09-14 15:26:30 |
 +----+-----------+-------------+---------------------+---------------------+
+
+
+
+#migration
+curl -L get.rvm.io | bash -s stable
+source /etc/profile.d/rvm.sh
+rvm requirements
+rvm install 2.1.2
+rvm use 2.1.2 --default
+rvm rubygems current
+gem install rails --no-ri --no-rdoc
+
+yum -y install git
+cd /
+git clone https://github.com/kazunori294/rails.git
+cd /rails/english
+bundle install
+
+mysql> create database english_development;
+rake db:migrate RAILS_ENV=development
+
+
