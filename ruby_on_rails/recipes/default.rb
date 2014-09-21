@@ -20,20 +20,20 @@ execute "install ruby_on_rails" do
   EOF
 end
 
-#yum install -y mysql-server
-#yum install -y mysql-devel
+yum install -y mysql-server
+yum install -y mysql-devel
 
-# add vi /etc/my.cnf
-#character-set-server = utf8
-#default-storage-engine=InnoDB
+vi /etc/my.cnf
+character-set-server = utf8
+default-storage-engine=InnoDB
 
-# service mysqld start
-# chkconfig mysqld on
-# mysqladmin -u root password 'password'
+service mysqld start
+chkconfig mysqld on
+mysqladmin -u root password 'password'
 
 
-#mysql> grant all privileges on *.* to infraweb@localhost identified by 'infraweb';
-#mysql> select user,host from mysql.user;
+mysql> grant all privileges on *.* to infraweb@localhost identified by 'infraweb';
+mysql> select user,host from mysql.user;
 #+----------+------------------+
 #| user     | host             |
 #+----------+------------------+
@@ -49,20 +49,21 @@ end
 #fail... need to fix
 
 
-#rails new infraweb -d mysql
-#add gem 'therubyracer'  to  Gemfile
-#bundle install
+rails new infraweb -d mysql
 
-#rails g controller hosts index
+add gem 'therubyracer'  to  Gemfile
+bundle install
 
-#vi config/database.yml
-#default: &default
-#  adapter: mysql2
-#  encoding: utf8
-#  pool: 5
-#  username: infraweb
-#  password: infraweb
-#  socket: /var/lib/mysql/mysql.sock
+rails g controller hosts index
+
+vi config/database.yml
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: infraweb
+  password: infraweb
+  socket: /var/lib/mysql/mysql.sock
 
 rake db:create
 mysql> show databases;
@@ -80,7 +81,9 @@ mysql> show databases;
 rails server --port=80
 
 rails g model host hostname:string ipaddress:string
-#cat db/migrate/20140914151945_create_hosts.rb 
+
+cat db/migrate/20140914151945_create_hosts.rb 
+
 rake db:migrate
 
 mysql> use infraweb_development;
