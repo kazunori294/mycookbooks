@@ -130,6 +130,7 @@ rvm rubygems current
 gem install rails --no-ri --no-rdoc
 
 yum -y install git
+yum install -y mysql mysql-devel
 cd /
 git clone https://github.com/kazunori294/rails.git
 cd /rails/english
